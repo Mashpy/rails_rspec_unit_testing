@@ -2,7 +2,6 @@ require 'spec_helper'
 describe Zombie do
   let(:zombie) { Zombie.create }
   subject { zombie }
-  # before {zombie.eat_brains}
 
   it_behaves_like 'the brainless'
   
@@ -21,7 +20,7 @@ describe Zombie do
     zombie = Zombie.new
     zombie.should_not be_valid
   end
-  # Check that it matches a certain pattern using a regex
+
   it 'has a name that matches "Ash Clone"' do
     zombie = Zombie.new(name: "Ash Clone 1")
     zombie.name.should match(/Ash Clone \d/)
@@ -48,14 +47,7 @@ describe Zombie do
     should respond_to(:name)
   end
 
-  # Also works, and rspec will generate debug text that is readable
-  # it { should respond_to(:name)}
 
-  # Examples of its
-  # its(:name) { should == 'Ash' }
-  # its(:weapons) { should include(weapon) }
-  # its(:iq) { should be_nil }
-  # its('tweets.size') { should == 2 }
 
   context 'when hungry' do
     context 'with a veggie preference' do
